@@ -10,6 +10,7 @@ let inputPractice = document.getElementById('txtPractice'); //getting the html e
 let selectPriority = document.getElementById('selPriority');
 let task="";
 
+
 function register(){
     let newTask = new Task(inputPractice.value, selectPriority.value);
     listTasks.push(newTask);
@@ -21,6 +22,8 @@ function register(){
 function display(aTask){
     let tasksSection = document.getElementById("tasks");//getting the HTML element
     //task += "<p class='task'>" + inputPractice.value + "</p>"; //create the task html element
-    task+=`<li class="task">${aTask.title} --- ${aTask.priority} <button>🗑️</button></li>`; 
+    task+=`<tr> <td class="task">${aTask.title}</td>
+
+     <td class="priority"> ${aTask.priority} <button>🗑️</button></td> </tr>`; 
     tasksSection.innerHTML=task;//injecting the task into the html
 }

@@ -21,8 +21,24 @@ let inputPhone = $("#txtPhone");
 let inputPayment = $("#selPayment");
 let inputColor = $("#selColor");
 
-function register(){
-    let user = new User(inputEmail.val(),inputPassword.val(),inputFirstName.val(),inputLastName.val(),inputAge.val(),inputAddress.val(),inputPhone.val(),inputPayment.val(),inputColor.val());
+function isValid(user) {
+    let valid = true;
 
-    console.log(user);
+    if (user.email="" && user.password==""){
+        valid=false;
+    }
+
+    return valid;
+}
+
+function register(){
+    let user = new User(inputEmail.val(),inputPassword.val(),
+    inputFirstName.val(),inputLastName.val(),inputAge.val(),
+    inputAddress.val(),inputPhone.val(),inputPayment.val(),inputColor.val());
+   
+    if (isValid(user)==true){
+    saveUser(user);
+    }else{
+        alert("Please enter a valid user name");
+    }
 }
